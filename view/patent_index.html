@@ -1,0 +1,224 @@
+<%include inc/header.html %>
+
+<body>
+<!-- <!-- 整站通用的头部及导航条 -->
+<div id="header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="padding:0 0 0 15px;" href="/index">
+                  <img alt="Brand" style="max-width:130px;"  src="/static/img/logo.png">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="/index">首页</a></li>
+                    <li ><a href="/course">开设课程</a></li>
+                    <li  class="active"><a href="/about">关于我们 <span class="sr-only">(current)</span></a><p class="line-top hidden-xs"></p></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>
+<!-- <!-- 整站通用的头部及导航条 -->
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<ol class="breadcrumb" style="margin-top: 10px; margin-bottom: 10px;">
+				<li><a href="/index">首页</a></li>
+				<li><a href="/about">关于我们</a></li>				<li class="active">版权声明</li>
+			</ol>
+		</div>
+	</div>
+</div>
+
+<div class="main-container">
+<div class="container">
+<div class="row main-container-row" style="position: relative">
+<div class="col-sm-3">
+	<div id="sidebar">
+		<div id="sidebar-content">
+			<ul>
+				<li>
+					<li><a  href="/about" title="关于我们">关于我们</a></li>
+					<li>
+            <a class="left-active" href="/patent" title="版权声明">版权声明</a>
+					  <ul class="left-anchor"></ul>
+          </li>
+          <li><a  href="/questions" title="常见问题">常见问题</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-9 usinfo-article">
+	<div class="article-title">
+		<h1 class="h2">版权声明<small>ittianjiao.com</small></h1>
+	</div>
+	<div class="article-content">
+		<ol>
+<li>“IT天骄”、“ittianjiao”为IT天骄所在公司及其关联公司的商标，受法律保护，任何人不得擅自使用。凡侵犯本公司版权等知识产权的，IT天骄将依法追究其相关法律责任。</li>
+<li>IT天骄所有关于网站内容的网络公开信息，由工作人员编辑整理，除非法律另有规定，未经书面许可，对于本网拥有版权或其他知识产权的任何内容，任何人不得使用、复制、修改、抄录、传播或与其它产品捆绑使用、销售，或在非中岚签证所属的服务器上做镜像或以其他任何方式进行使用。</li>
+<li>本网所有内容，凡注明“来源：IT天骄”的所有文字、图片和音视频等资料，版权均属签宝所有，任何单位或个人未经本网书面许可，不得转载、链接、转贴或以其他方式复制发布/发表。</li>
+<li>对本网版权所有之内容，已经本网书面许可的单位或个人，在使用时必须注明“稿件来源：IT天骄”,并标明网址www.ittianjiao.com，违者本网将依法追究其相关法律责任。</li>
+<li>转载或引用本网内容必须是以新闻性或资料性公共免费信息服务为目的的合理、善意使用，不得对本网内容原意进行曲解、修改，同时必须保留本网注明的“稿件来源”，并自负版权等法律责任。</li>
+<li>凡本网注明“来源：XXX ”的文/图等资料，本网转载出于传递更多信息之目的，并不意味着赞同其观点或证实其内容的真实性。</li>
+<li>对于不当转载或引用本网内容而引起的纷争等或因纠纷等造成的任何损失，本网不承担相关法律责任。</li>
+<li>对不遵守本声明的用户或其他违法、恶意使用本网内容者，本网保留追究其法律责任的权利。</li>
+<li>本声明未涉及的问题请参见国家有关法律法规，当本声明与国家有关法律法规冲突时，以国家法律法规为准。</li>
+<li>本网站相关声明版权及其修改权、更新权和最终解释权均属IT天骄所有。</li>
+</ol>
+	</div>
+</div>
+<p class="hidden-xs" id="left-line"></p>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$('.article-content table').addClass("table table-bordered table-hover");
+	});
+	/** 响应式sidebar 左侧菜单 **/
+	$(function () {
+		//页面加载时初始化
+		var sidebar = $('#sidebar');
+		var sidebarContent = $('#sidebarContent');
+		var sidebarBg = $('#sidebar-bg');
+
+		var navHeight = (window.innerWidth < 768) ? 0 : 82;
+		var floor = new Array();
+
+
+		//点击显示菜单按钮
+		$('#slider-menu').click(function(event){
+			if( sidebar.is(':hidden')){
+				sidebar.show();
+				sidebarBg.css({
+					"position" : "fixed",
+					"top" : 0,
+					"left" : 0,
+					"display" : "block",
+					"width" : "100%",
+					"height" : "100%",
+					"z-index" : 1090,
+					"background-color" : "rgba(0,0,0,0.5)"
+				});
+			}else{
+				sidebar.hide();
+				sidebarBg.hide();
+			}
+		});
+		//如果是手机屏幕, 点周空白处隐藏菜单
+		sidebarBg.click(function(){
+			sidebar.hide();
+			sidebarBg.hide();
+		});
+
+
+		var buildAnchor = function(){
+			var anchorLi = '';
+			//将页面的h3作为锚点链接, 添加到导航菜单中
+			$('.article-content h3').each(function(){
+				floor.push($(this).offset().top);
+				anchorLi += '<li><a>' + $(this).text() + '</a></li>';
+			});
+			//测试时用, 实际使用时可删除
+			$('.left-anchor').empty();
+			$('.left-anchor').append(anchorLi);
+			$('.left-anchor').children(':first').children(':first').addClass('left-active-sub');
+
+			//为新加的锚点裢接绑定跳转事件
+			$('.left-anchor li').each(function(){
+				$(this).click(function(){
+					$(window).scrollTop(($('.article-content h3').eq($(this).index()).offset().top)-navHeight);
+					//alert($(this).index());
+					if(window.innerWidth<768){
+						$('#sidebar').hide();
+						$('#sidebar-bg').hide();
+					}
+				});
+			});
+		}
+
+		buildAnchor();
+
+		//浮动菜单函数
+		var flowMenu = function(validHeight){
+			if($('.main-container-row').offset().top < $(window).scrollTop()+navHeight){
+				//console.log('跑出去了');
+				sidebar.css({
+					"position" : "fixed",
+					"width" :sidebar.parent().width(),
+					"height" : validHeight,
+					//"top" : $(window).scrollTop()+navHeight-$('.main-container-row').offset().top,
+					"top" : navHeight
+				});
+			}else{
+				sidebar.css({
+					"position" : "relative",
+					"width" : sidebar.parent().width(),
+					"height" : validHeight,
+					"top" : ""
+				});
+			}
+		}
+
+
+		//视口改变时
+		$(window).resize(function () {
+			navHeight = (window.innerWidth < 768) ? 0 : 82;
+			sidebar.css({
+				"width" : sidebar.parent().width()
+			});
+			if(window.innerWidth>=768){
+				sidebar.show();
+				sidebarBg.hide();
+				var validHeight = $('.main-container-row').offset().top + $('.main-container-row').outerHeight()-$(window).scrollTop()-navHeight;
+				flowMenu(validHeight);
+			}else{
+				sidebar.hide();
+				sidebarBg.hide();
+			}
+		});
+		//页面滚动时
+		$(window).scroll(function(){
+			var aIndex = 0;
+			//为菜单加active的class
+			//row底部到视口顶部的距离, 元素顶部偏移 + 元素高度 - 滚动条偏移 - 固定导航条高度
+			var validHeight = $('.main-container-row').offset().top + $('.main-container-row').outerHeight()-$(window).scrollTop()-navHeight;
+			//console.log(validHeigh);
+			for(var i=0; i<floor.length; i++){
+				if(floor[i]<($(window).scrollTop()+navHeight+10)){
+					aIndex = aIndex + 1;
+				}
+			}
+			if(aIndex>0){
+				aIndex = aIndex - 1;
+			}
+			//console.log(aIndex);
+			var actLi = $('.left-anchor li').eq(aIndex);
+			actLi.siblings().each(function(){
+				$(this).children(':first').removeClass('left-active-sub')
+			});
+			actLi.children(':first').addClass('left-active-sub');
+
+			//PC端时, 控制左边菜单列浮动显示
+			if(window.innerWidth>=768){
+				flowMenu(validHeight);
+			}
+		});
+	});
+	/** 响应式sidebar 左侧菜单 **/
+</script>
+<%include inc/footer.html %>

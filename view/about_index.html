@@ -1,0 +1,226 @@
+<%include inc/header.html %>
+
+<body>
+<!-- <!-- 整站通用的头部及导航条 -->
+<div id="header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="padding:0 0 0 15px;" href="/index">
+                  <img alt="Brand" style="max-width:130px;"  src="/static/img/logo.png">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="/index">首页</a></li>
+                    <li ><a href="/course">开设课程</a></li>
+                    <li  class="active"><a href="/about">关于我们 <span class="sr-only">(current)</span></a><p class="line-top hidden-xs"></p></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>
+<!-- <!-- 整站通用的头部及导航条 -->
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<ol class="breadcrumb" style="margin-top: 10px; margin-bottom: 10px;">
+				<li><a href="/index">首页</a></li>
+				<li><a href="/about">关于我们</a></li>				<li class="active">关于我们</li>
+			</ol>
+		</div>
+	</div>
+</div>
+
+
+<div class="main-container">
+<div class="container">
+<div class="row main-container-row" style="position: relative">
+<div class="col-sm-3">
+	<div id="sidebar">
+		<div id="sidebar-content">
+			<ul>
+				<li>
+				<li>
+					<a class="left-active" href="/about" title="关于我们">关于我们</a>
+					<ul class="left-anchor"></ul>
+        </li>
+				<li><a  href="/patent" title="版权声明">版权声明</a></li>
+				<li><a  href="/questions" title="常见问题">常见问题</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-9 usinfo-article">
+	<div class="article-title">
+		<h1 class="h2">关于我们<small>ittianjiao.com</small></h1>
+	</div>
+	<div class="article-content">
+		<h3>IT天骄简介</h3>
+<p>good</p>
+<h3>IT天骄创始人</h3>
+<p>天才他哥</p>
+<h3>为什么选择IT天骄</h3>
+<p><strong>专业：</strong>你懂得</p>
+<h3>IT天骄企业文化</h3>
+<p><strong>企业使命</strong>&mdash;&mdash;科技为善</p>
+<p><strong>愿景</strong>&mdash;&mdash;让青少年都能体验编程的乐趣！</p>
+<p><strong>价值观</strong>&mdash;&mdash;正直~顺道而行，顺理而言；自律~严格要求，自我驱动；协作~相互尊重，团体配合；高效~强化执行，狠抓落实</p>
+<p><strong>目标</strong>&mdash;&mdash;完善内部管理系统，推行以目标管理、预算管理为主导的经营机制</p>
+<p><strong>经营理念</strong>&mdash;&mdash;奉献 走心 持续</p>
+	</div>
+</div>
+<p class="hidden-xs" id="left-line"></p>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+	$(function(){
+		$('.article-content table').addClass("table table-bordered table-hover");
+	});
+	/** 响应式sidebar 左侧菜单 **/
+	$(function () {
+		//页面加载时初始化
+		var sidebar = $('#sidebar');
+		var sidebarContent = $('#sidebarContent');
+		var sidebarBg = $('#sidebar-bg');
+
+		var navHeight = (window.innerWidth < 768) ? 0 : 82;
+		var floor = new Array();
+
+
+		//点击显示菜单按钮
+		$('#slider-menu').click(function(event){
+			if( sidebar.is(':hidden')){
+				sidebar.show();
+				sidebarBg.css({
+					"position" : "fixed",
+					"top" : 0,
+					"left" : 0,
+					"display" : "block",
+					"width" : "100%",
+					"height" : "100%",
+					"z-index" : 1090,
+					"background-color" : "rgba(0,0,0,0.5)"
+				});
+			}else{
+				sidebar.hide();
+				sidebarBg.hide();
+			}
+		});
+		//如果是手机屏幕, 点周空白处隐藏菜单
+		sidebarBg.click(function(){
+			sidebar.hide();
+			sidebarBg.hide();
+		});
+
+
+		var buildAnchor = function(){
+			var anchorLi = '';
+			//将页面的h3作为锚点链接, 添加到导航菜单中
+			$('.article-content h3').each(function(){
+				floor.push($(this).offset().top);
+				anchorLi += '<li><a>' + $(this).text() + '</a></li>';
+			});
+			//测试时用, 实际使用时可删除
+			$('.left-anchor').empty();
+			$('.left-anchor').append(anchorLi);
+			$('.left-anchor').children(':first').children(':first').addClass('left-active-sub');
+
+			//为新加的锚点裢接绑定跳转事件
+			$('.left-anchor li').each(function(){
+				$(this).click(function(){
+					$(window).scrollTop(($('.article-content h3').eq($(this).index()).offset().top)-navHeight);
+					//alert($(this).index());
+					if(window.innerWidth<768){
+						$('#sidebar').hide();
+						$('#sidebar-bg').hide();
+					}
+				});
+			});
+		}
+
+		buildAnchor();
+
+		//浮动菜单函数
+		var flowMenu = function(validHeight){
+			if($('.main-container-row').offset().top < $(window).scrollTop()+navHeight){
+				//console.log('跑出去了');
+				sidebar.css({
+					"position" : "fixed",
+					"width" :sidebar.parent().width(),
+					"height" : validHeight,
+					//"top" : $(window).scrollTop()+navHeight-$('.main-container-row').offset().top,
+					"top" : navHeight
+				});
+			}else{
+				sidebar.css({
+					"position" : "relative",
+					"width" : sidebar.parent().width(),
+					"height" : validHeight,
+					"top" : ""
+				});
+			}
+		}
+
+
+		//视口改变时
+		$(window).resize(function () {
+			navHeight = (window.innerWidth < 768) ? 0 : 82;
+			sidebar.css({
+				"width" : sidebar.parent().width()
+			});
+			if(window.innerWidth>=768){
+				sidebar.show();
+				sidebarBg.hide();
+				var validHeight = $('.main-container-row').offset().top + $('.main-container-row').outerHeight()-$(window).scrollTop()-navHeight;
+				flowMenu(validHeight);
+			}else{
+				sidebar.hide();
+				sidebarBg.hide();
+			}
+		});
+		//页面滚动时
+		$(window).scroll(function(){
+			var aIndex = 0;
+			//为菜单加active的class
+			//row底部到视口顶部的距离, 元素顶部偏移 + 元素高度 - 滚动条偏移 - 固定导航条高度
+			var validHeight = $('.main-container-row').offset().top + $('.main-container-row').outerHeight()-$(window).scrollTop()-navHeight;
+			//console.log(validHeigh);
+			for(var i=0; i<floor.length; i++){
+				if(floor[i]<($(window).scrollTop()+navHeight+10)){
+					aIndex = aIndex + 1;
+				}
+			}
+			if(aIndex>0){
+				aIndex = aIndex - 1;
+			}
+			//console.log(aIndex);
+			var actLi = $('.left-anchor li').eq(aIndex);
+			actLi.siblings().each(function(){
+				$(this).children(':first').removeClass('left-active-sub')
+			});
+			actLi.children(':first').addClass('left-active-sub');
+
+			//PC端时, 控制左边菜单列浮动显示
+			if(window.innerWidth>=768){
+				flowMenu(validHeight);
+			}
+		});
+	});
+	/** 响应式sidebar 左侧菜单 **/
+</script>
+<%include inc/footer.html %>

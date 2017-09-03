@@ -1,0 +1,209 @@
+<%include inc/header.html %>
+
+<body>
+<!-- <!-- 整站通用的头部及导航条 -->
+<div id="header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="padding:0 0 0 15px;" href="/index">
+                  <img alt="Brand" style="max-width:130px;"  src="/static/img/logo.png">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="/index">首页</a></li>
+                    <li  class="active"><a href="/course">开设课程 <span class="sr-only">(current)</span></a><p class="line-top hidden-xs"></p></li>
+                    <li ><a href="/about">关于我们</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>
+<!-- <!-- 整站通用的头部及导航条 -->
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<ol class="breadcrumb" style="margin-top: 10px; margin-bottom: 10px;">
+				<li><a href="http://www.clantrip.com">首页</a></li>
+				<li><a href="http://www.clantrip.com/index.php?m=content&c=index&a=lists&catid=9">开设课程</a></li>			</ol>
+		</div>
+	</div>
+</div>
+
+<div class="main-container">
+<div class="container">
+<div class="row main-container-row" style="position: relative">
+<div class="col-xs-12 col-sm-9 service-list">
+	<dl class="service-item">
+		<dd class="liucheng">
+			<a href="#" class="service-item-title"><h3>IT战狼集训营</h3></a>
+			<p class="hidden-xs">
+				<span>时间: 周末节假日</span>
+				<span>招生对象: 4至12年级学生</span>
+				<span class="hidden-sm">性别: 男女不限</span>
+			</p>
+			<p>
+				<span>关注度: <span class="star"><i>★★★★</i>★</span></span>
+			</p>
+			<p>
+				<span>特色: 特种兵训练</span>
+			</p>
+			<a href="#" class="btn btn-outline-blue">查看详情</a>
+		</dd>
+
+    <dd class="liucheng">
+      <a href="#" class="service-item-title"><h3>编程记英语词汇公益课</h3></a>
+      <p class="hidden-xs">
+        <span>时间: 周二至周五晚上19点至21点</span>
+        <span>招生对象: 4至12年级学生</span>
+        <span class="hidden-sm">性别: 男女不限</span>
+      </p>
+      <p>
+        <span>关注度: <span class="star"><i>★★★★</i>★</span></span>
+      </p>
+      <p>
+        <span>特色: 在编程中学习英语词汇</span>
+      </p>
+      <a href="#" class="btn btn-outline-blue">查看详情</a>
+    </dd>
+
+    <dd class="liucheng">
+      <a href="#" class="service-item-title"><h3>编程记数学公式公益课</h3></a>
+      <p class="hidden-xs">
+        <span>时间: 周二至周五晚上19点至21点</span>
+        <span>招生对象: 4至12年级学生</span>
+        <span class="hidden-sm">性别: 男女不限</span>
+      </p>
+      <p>
+        <span>关注度: <span class="star"><i>★★★★</i>★</span></span>
+      </p>
+      <p>
+        <span>特色: 在编程中学习数学公式</span>
+      </p>
+      <a href="#" class="btn btn-outline-blue">查看详情</a>
+    </dd>
+
+	</dl>
+
+</div>
+<div class="col-sm-3">
+    <div id="sidebar">
+        <div id="sidebar-content" class="sidebar-right">
+            <h4 class="hidden-xs">客户服务</h4>
+            <div class="sidebar-contact hidden-xs">
+                <a class="sidebar-phone" title="免费电话咨询">18911681482</a>
+                <a class="sidebar-qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=274027502&site=qq&menu=yes">点击QQ咨询</a>
+                <a class="sidebar-chat web-chat" href="javascript:;">点击在线咨询</a>
+            </div>
+            <h4>上课地点</h4>
+            <ul>
+                <li><a target="_blank" href="#">北京市海淀区上庄镇后章村</a></li>
+                <li><a target="_blank"  href="#">温馨四合院欢迎您的到来！</a></li>
+            </ul>
+            <h4>有关要求</h4>
+            <ul>
+                <li><a target="_blank" href="#">注意安全，来回记得给父母打电话</a></li>
+                <li><a target="_blank" href="#">带上课程所需资料</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<p class="hidden-xs" id="right-line"></p></div>
+</div>
+</div>
+
+<script type="text/javascript">
+	/** 响应式sidebar 通用版块 **/
+	$(function () {
+		//页面加载时初始化
+		var sidebar = $('#sidebar');
+		var sidebarContent = $('#sidebarContent');
+		var sidebarBg = $('#sidebar-bg');
+
+		var navHeight = (window.innerWidth < 768) ? 0 : 82;
+
+		//点击显示菜单按钮
+		$('#slider-menu').click(function(event){
+			if( sidebar.is(':hidden')){
+				sidebar.show();
+				sidebarBg.css({
+					"position" : "fixed",
+					"top" : 0,
+					"left" : 0,
+					"display" : "block",
+					"width" : "100%",
+					"height" : "100%",
+					"z-index" : 1090,
+					"background-color" : "rgba(0,0,0,0.5)"
+				});
+			}else{
+				sidebar.hide();
+				sidebarBg.hide();
+			}
+		});
+		//如果是手机屏幕, 点周空白处隐藏菜单
+		sidebarBg.click(function(){
+			sidebar.hide();
+			sidebarBg.hide();
+		});
+
+		//浮动菜单函数
+		var flowMenu = function(validHeight){
+			if($('.main-container-row').offset().top < $(window).scrollTop()+navHeight){
+				//console.log('跑出去了');
+				sidebar.css({
+					"position" : "fixed",
+					"width" :sidebar.parent().width(),
+					"height" : validHeight,
+					//"top" : $(window).scrollTop()+navHeight-$('.main-container-row').offset().top,
+					"top" : navHeight
+				});
+			}else{
+				sidebar.css({
+					"position" : "relative",
+					"width" : sidebar.parent().width(),
+					"height" : validHeight,
+					"top" : ""
+				});
+			}
+		}
+
+		//视口改变时
+		$(window).resize(function () {
+			navHeight = (window.innerWidth < 768) ? 0 : 82;
+			sidebar.css({
+				"width" : sidebar.parent().width()
+			});
+			if(window.innerWidth>=768){
+				sidebar.show();
+				sidebarBg.hide();
+				var validHeight = $('.main-container-row').offset().top + $('.main-container-row').outerHeight()-$(window).scrollTop()-navHeight;
+				flowMenu(validHeight);
+			}else{
+				sidebar.hide();
+				sidebarBg.hide();
+			}
+		});
+		//页面滚动时
+		$(window).scroll(function(){
+			var validHeight = $('.main-container-row').offset().top + $('.main-container-row').outerHeight()-$(window).scrollTop()-navHeight;
+			if(window.innerWidth>=768){
+				flowMenu(validHeight);
+			}
+		});
+	});
+	/** 响应式sidebar 通用版块 **/
+</script>
+<%include inc/footer.html %>
